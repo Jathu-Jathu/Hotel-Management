@@ -19,7 +19,7 @@ export const exportToPDF = (columns, data, options = {}) => {
       doc.internal.scaleFactor;
     const textXPosition = (pageWidth - textWidth) / 2;
     doc.setTextColor(0, 0, 0);
-    doc.text(title, textXPosition, 45);
+    doc.text(title, textXPosition, 65);
     generateTable(doc, columns, data);
     savePDF(doc);
   };
@@ -35,7 +35,7 @@ const generateTable = (doc, columns, data) => {
   doc.autoTable({
     head: [columns.map((col) => col.headerName)],
     body: rows,
-    startY: 55,
+    startY: 80,
   });
 };
 

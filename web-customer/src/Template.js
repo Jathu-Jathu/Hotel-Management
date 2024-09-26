@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { Layout, Menu, Button, Dropdown } from "antd";
 import {
   UserSwitchOutlined,
@@ -18,7 +17,7 @@ import {
   DownOutlined,
 } from "@ant-design/icons";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const StyledFooter = styled.footer`
   background-color: #f0f0f0;
@@ -77,19 +76,7 @@ const Template = ({ children }) => {
       icon: <CalendarOutlined />,
       onClick: () => navigate("/customeraffair"),
     },
-    {
-      key: "7",
-      label: "Customer Affair - Feedback",
-      icon: <CalendarOutlined />,
-      onClick: () => navigate("/feedback"),
-    },
     
-    {
-      key: "8",
-      label: "Customer Affair - Complaint",
-      icon: <CalendarOutlined />,
-      onClick: () => navigate("/complaint"),
-    },
   ];
 
   const menuItems = [
@@ -221,9 +208,9 @@ const Template = ({ children }) => {
         {/* Footer content */}
         <SocialIcons>{/* Social icons */}</SocialIcons>
         <ContactInfo>{/* Contact info */}</ContactInfo>
-        <p>Location: 148/10, Station Road, Jaffna, Sri Lanka.</p>
-        <p>Phone: +94 21 222 0111.</p>
-        <p>Email: info@valampurihotel.com</p>
+        <p>Location:  Station Road, Jaffna, Sri Lanka.</p>
+        <p>Phone: +94 21 222 0000.</p>
+        <p>Email: info@selvahotel.com</p>
       </StyledFooter>
     </Layout>
   );

@@ -9,10 +9,10 @@ import {
   Grid,
   Link,
 } from "@mui/material";
-
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Link as RouterLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import backgroundImage from "./logo.jpg";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -27,18 +27,36 @@ const Login = () => {
       justifyContent: "center",
       height: "100vh",
       width: "100%",
+      zIndex: 1, // Ensure form content stays on top
     },
     body: {
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
+      position: "relative",
       height: "100vh", // Ensure the background covers the entire viewport height
       margin: 0, // Remove default margin
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
     },
-    
+    container: {
+      position: "relative", // Allow pseudo-element positioning
+      backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent background for content readability
+      borderRadius: "8px",
+      padding: "16px",
+      zIndex: 2, // Place content above the blurred image
+    },
+    backgroundImage: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      filter: "blur(4px)", // Apply blur to the image
+      zIndex: 0, // Make sure the background image is behind everything
+    },
     avatar: {
       margin: "4px",
       backgroundColor: "gray",
@@ -94,9 +112,9 @@ const Login = () => {
           const authToken = response.data.token;
           const loggedInUser = response.data.data;
           console.log(loggedInUser);
-          const userId =loggedInUser._id;
-          const empid=loggedInUser.employee;
-          const data=loggedInUser;
+          const userId = loggedInUser._id;
+          const empid = loggedInUser.employee;
+          const data = loggedInUser;
           console.log(data);
           localStorage.setItem("authToken", authToken);
           localStorage.setItem("loggedInUserType", loggedInUser.userType);
@@ -121,6 +139,7 @@ const Login = () => {
 
   return (
     <div style={styles.body}>
+      <div style={styles.backgroundImage}></div> {/* Blurred background image */}
       <Container component="main" maxWidth="xs" style={styles.container}>
         <CssBaseline />
         <div style={styles.paper}>

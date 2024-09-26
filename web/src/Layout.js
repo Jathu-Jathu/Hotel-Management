@@ -7,9 +7,7 @@ import {
   TableOutlined,
   FileDoneOutlined,
   AppstoreAddOutlined,
-  FireOutlined,
   DollarCircleOutlined,
-  ApiOutlined,
   CheckCircleOutlined,
   FormOutlined,
   TeamOutlined,
@@ -106,11 +104,7 @@ const adminUserItems = [
         icon: <SyncOutlined />,
         label: "Stocks",
       },
-      {
-        key: "suppliers",
-        icon: <UserSwitchOutlined />,
-        label: "Suppliers",
-      },
+      
       
       {
         key: "scanner",
@@ -120,7 +114,22 @@ const adminUserItems = [
 
     ],
   },
-  //det
+
+  //Supply management
+  {
+    key: "supply",
+    icon: <UserSwitchOutlined />,
+    label: "Supply Management",
+    children:[
+      {
+        key: "suppliers",
+        icon: <UserSwitchOutlined />,
+        label: "Suppliers",
+      }
+
+    ]
+  },
+  
   // Employee Management
   {
     key: "employee",

@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { Link as RouterLink } from "react-router-dom";
+import backgroundImage from "./logo.jpg";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +40,26 @@ export default function Register() {
       alignItems: "center",
       justifyContent: "center",
     },
-
+    container: {
+      position: "relative", // Allow pseudo-element positioning
+      backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent background for content readability
+      borderRadius: "8px",
+      padding: "16px",
+      zIndex: 2, // Place content above the blurred image
+    },
+    backgroundImage: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      filter: "blur(4px)", // Apply blur to the image
+      zIndex: 0, // Make sure the background image is behind everything
+    },
     avatar: {
       margin: "4px",
       backgroundColor: "gray",
@@ -138,6 +158,7 @@ export default function Register() {
 
   return (
     <div style={styles.body}>
+      <div style={styles.backgroundImage}></div> {/* Blurred background image */}
       <Container component="main" maxWidth="xs" style={styles.container}>
         <CssBaseline />
         <div style={styles.paper}>

@@ -7,7 +7,6 @@ import {
   Modal,
   Typography,
   Rate,
-  Input,
   InputNumber,
   message,
 } from "antd";
@@ -407,11 +406,11 @@ const Landing = () => {
       </div>
       <Container>
         <TextContainer>
-          <h2>Valampuri Hotel</h2>
-          <h3>148/10, Station Road, Jaffna, Sri Lanka.</h3>
+          <h2>Selva Hotel</h2>
+          <h3> Station Road, Jaffna, Sri Lanka.</h3>
           <p>
             Welcome to very special hotel in Jaffna Peninsula, Located adjoining
-            with Jaffna Central Railway Station. Valampuri hotel offers 32
+            with Jaffna Central Railway Station. Selva hotel offers 32
             spacious deluxe room including 2 Suites. Relax and rejuvenate in our
             Swimming pool, gym and spa. This hotel is part of Green Grass Hotel
             & Restaurant.
@@ -422,7 +421,7 @@ const Landing = () => {
             the luxury furnishings provide a warm contemporary feel.
           </p>
           <p>
-            At Valampuri, our hotel’s exclusive rooftop venue, guests have a
+            At Selva, our hotel’s exclusive rooftop venue, guests have a
             front-row seat and birds-eye view of Nissan Stadium, CMA Fest,
             concerts on the waterfront, fireworks, and other major Nashville
             events.
@@ -463,25 +462,7 @@ const Landing = () => {
           ))}
         </div>
       </FeedbackSection>
-      <FeedbackFormContainer>
-        <h2>Leave Feedback</h2>
-        <Form form={feedBackForm} onFinish={handleSubmit}>
-          <Form.Item
-            name="comment"
-            rules={[{ required: true, message: "Please enter your feedback" }]}
-          >
-            <Input.TextArea placeholder="Your feedback..." />
-          </Form.Item>
-          <Form.Item>
-            <Rate allowHalf onChange={handleRatingChange} value={rating} />
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Submit Feedback
-            </Button>
-          </Form.Item>
-        </Form>
-      </FeedbackFormContainer>
+
       <div style={{ height: "400px", width: "100%", overflow: "hidden" }}>
         <Carousel autoplay>
           {hotelImages.map((imageUrl, index) => (
